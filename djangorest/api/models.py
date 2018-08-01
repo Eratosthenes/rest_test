@@ -36,7 +36,7 @@ class Unit(models.Model):
 
 class Loan(models.Model):
     building_id = models.ForeignKey(Building, on_delete=models.CASCADE)
-    loan_amount = models.IntegerField(default=0)
-    debt_rate = models.IntegerField(default=0)
+    loan_amount = models.FloatField(default=0)
+    debt_rate = models.FloatField(default=0.0)
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
