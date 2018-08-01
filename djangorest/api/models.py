@@ -33,3 +33,10 @@ class Unit(models.Model):
 
     def __str__(self):
     	return self.unit_number
+
+class Loan(models.Model):
+    building_id = models.ForeignKey(Building, on_delete=models.CASCADE)
+    loan_amount = models.IntegerField(default=0)
+    debt_rate = models.IntegerField(default=0)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)

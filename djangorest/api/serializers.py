@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Building, Unit
+from .models import Building, Unit, Loan
 
 class BuildingSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
@@ -36,6 +36,20 @@ class UnitSerializer(serializers.ModelSerializer):
 			'vacancy',
 			'bedrooms',
 			'bathrooms',
+			'date_created',
+        	'date_modified')
+        read_only_fields = ('date_created', 'date_modified')
+
+class LoanSerializer(serializers.ModelSerializer):
+    """Serializer to map the Model instance into JSON format."""
+
+    class Meta:
+        """Meta class to map serializer's fields with the model fields."""
+        model = Loan
+        fields = ('id', 
+        	'building_id', 
+			'loan_amount',
+			'debt_rate',
 			'date_created',
         	'date_modified')
         read_only_fields = ('date_created', 'date_modified')
