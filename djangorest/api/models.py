@@ -19,3 +19,17 @@ class Building(models.Model):
     def __str__(self):
         """Return a human readable representation of the model instance."""
         return "{}".format(self.name)   
+
+class Unit(models.Model):
+    building_id = models.ForeignKey(Building, on_delete=models.CASCADE)
+    unit_number = models.CharField(max_length=200) # not a number since we can have unit 2A, etc
+    monthly_rent = models.IntegerField(default=0)
+    vacancy = models.IntegerField(default=0)
+    bedrooms = models.IntegerField(default=0)
+    bathrooms = models.IntegerField(default=0)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)
+    # annual_total not included since it is just monthly_rent * 12
+
+    def __str__(self):
+    	return self.unit_number
