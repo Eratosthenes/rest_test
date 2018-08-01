@@ -7,5 +7,18 @@ class BuildingSerializer(serializers.ModelSerializer):
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
         model = Building
-        fields = ('id', 'name', 'address', 'date_created', 'date_modified')
+        fields = ('id', 
+        	'name', 
+        	'address', 
+        	'capitalization_rate', 
+        	'marketing',
+        	'taxes',
+        	'insurance',
+        	'repairs',
+        	'administration',
+        	'payroll',
+        	'utility',
+        	'management',
+        	'date_created', 
+        	'date_modified')
         read_only_fields = ('date_created', 'date_modified')
